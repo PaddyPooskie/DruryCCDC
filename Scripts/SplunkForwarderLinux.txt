@@ -1,0 +1,29 @@
+64 bit:
+http://download.splunk.com/releases/6.0/universalforwarder/linux/splunkforwarder-6.0-182037-Linux-x86_64.tgz
+http://download.splunk.com/releases/6.0.2/universalforwarder/linux/splunkforwarder-6.0.2-196940-linux-2.6-x86_64.rpm
+http://download.splunk.com/releases/6.0/universalforwarder/linux/splunkforwarder-6.0-182037-linux-2.6-amd64.deb
+
+32 bit:
+http://download.splunk.com/releases/6.0/universalforwarder/linux/splunkforwarder-6.0-182037-Linux-i686.tgz
+http://download.splunk.com/releases/6.0.2/universalforwarder/linux/splunkforwarder-6.0.2-196940.i386.rpm
+http://download.splunk.com/releases/6.0/universalforwarder/linux/splunkforwarder-6.0-182037-linux-2.6-intel.deb
+
+commands:
+/opt/splunkforwarder/bin/splunk start
+/opt/splunkforwarder/bin/splunk add forward-server 10.128.Y.something:9997
+/opt/splunkforwarder/bin/splunk add monitor /var/log/auth.log -index main -sourcetype syslog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/apache2/access.log -index main -sourcetype weblog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/apache2/error.log -index main -sourcetype weblog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/httpd/access_log -index main -sourcetype weblog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/httpd/error_log -index main -sourcetype weblog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/secure -index main -sourcetype syslog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/messages -index main -sourcetype syslog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/httpd-errors.log -index main -sourcetype syslog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/mysql.log -index main -sourcetype syslog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/mysql.err -index main -sourcetype syslog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/dpkg.log -index main -sourcetype syslog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/syslog -index main -sourcetype syslog
+/opt/splunkforwarder/bin/splunk add monitor /var/log/authlog -index main -sourcetype syslog
+/opt/splunkforwarder/bin/splunk add monitor /var/adm/sulog -index main -sourcetype syslog
+/opt/splunkforwarder/bin/splunk list forward-server
+/opt/splunkforwarder/bin/splunk restart
