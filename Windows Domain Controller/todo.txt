@@ -1,0 +1,4 @@
+Install Sysmon with SwiftOnSecurity Profile:
+https://github.com/SwiftOnSecurity/sysmon-config
+
+Install Splunk Forwarder
