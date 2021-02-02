@@ -1,0 +1,24 @@
+#### Debian 7.8
+Pre-Comp
+- Check users that need to be on the system so I know whats weird
+- Learn how mysql works so I can run the mysql_secure_installation thing to make it secure
+
+Comp
+- Change password on root and sysadmin
+- iptables -F to flush in case there's dumb network rules
+- Uninstall nc because netcat sucks
+- Remove ssh auth keys
+- Edit sshd_config file to disallow root login, change port to something other than 22 so its not obvious (we needed SSH to access the MySQL database from the web server)
+- Add sysadmin to sudoers
+- Check /etc/passwd for weird users, change all shells I dont need to /bin/false
+- Check /etc/sudoers
+- Check /etc/sudoers.d
+- Edit the mysql tables to allow a specific user to have access to the frog table that we needed (on localhost, then the web server SSHes into it with -L to "pretend" like he's localhost accessing all of it)
+- Upgrade system (change sources to archive.debian.org......)
+- Check .bashrc for weird stuff
+- Uninstall cron
+- Uninstall/disable apache2
+- Check home folder for suspicious things/files as hints to problems
+- After all upgrades done, install ufw and deny everything (default deny in & out) except access to the web server on ONE port (SSH so he could access the MySQL)
+ - If something was going on with the web server, I cut the ssh connection so it wouldnt spread to my system, then when he was ready to go again I re enabled it
+ - When the competition was about to end and everyone's systems were dying I just denied everything and sat there staring at my screen while all the other systems died
