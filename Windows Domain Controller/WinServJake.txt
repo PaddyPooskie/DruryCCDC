@@ -22,7 +22,7 @@ Make sure Firewall is running, change Inbound and Outbound Rules
 
  - Win + R -> wf.msc
  - Make sure inbound and outbound connections are blocked if doesn't meet a rule
- - Go to outbound rules -> 
+  - Go to inbound rules -> 
    - UDP 88 -> Kerberos authentication
    - UDP and TCP 135 -> Domain controllers-to-domain controller and client to domain controller operations
    - TCP 139 and UDP 138 -> File Replication Service between domain controllers
@@ -31,17 +31,8 @@ Make sure Firewall is running, change Inbound and Outbound Rules
    - TCP and UDP 464 -> Kerberos Password Change
    - TCP 3268 and TCP 3269 -> Global Catalog from client to domain controller
    - TCP and UDP 53 -> DNS 
- - Go to inbound rules -> 
-   - UDP 88 -> Kerberos authentication
-   - UDP and TCP 135 -> Domain controllers-to-domain controller and client to domain controller operations
-   - TCP 139 and UDP 138 -> File Replication Service between domain controllers
-   - UDP 389 -> LDAP to handle queries from client computers to the domain controllers 
-   - TCP and UDP 445 -> File Replication Service
-   - TCP and UDP 464 -> Kerberos Password Change
-   - TCP 3268 and TCP 3269 -> Global Catalog from client to domain controller
-   - TCP and UDP 53 -> DNS 
-
-Check Startup Registries
+   
+   Check Startup Registries
  - Search regedit
    - HKEY_LOCAL_MACHINE/Software/Microsoft/Windows/CurrentVersion/Run
    - HKEY_LOCAL_MACHINE/Software/Microsoft/Windows/CurrentVersion/RunOnce
@@ -78,3 +69,12 @@ How to disable Shares
  - Go to computer management
  - System Tools -> Shared Folders -> Shares
  - Disable Users
+ - Go to outbound rules -> Mainly be blocking ones that should not exist
+   - UDP 88 -> Kerberos authentication
+   - UDP and TCP 135 -> Domain controllers-to-domain controller and client to domain controller operations
+   - TCP 139 and UDP 138 -> File Replication Service between domain controllers
+   - UDP 389 -> LDAP to handle queries from client computers to the domain controllers 
+   - TCP and UDP 445 -> File Replication Service
+   - TCP and UDP 464 -> Kerberos Password Change
+   - TCP 3268 and TCP 3269 -> Global Catalog from client to domain controller
+   - TCP and UDP 53 -> DNS 
