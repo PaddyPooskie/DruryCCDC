@@ -14,6 +14,9 @@ Delete unnecessary accounts
  - Settings
  - Select and Delete
 
+Download sysmon @ https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon 
+ - run sysmon -accepteula -i "wherever you save 'sysmon-configexport.xml'"
+ 
 Make sure Firewall is running, change Inbound and Outbound Rules
 
  - Win + R -> wf.msc
