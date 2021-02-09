@@ -1,0 +1,71 @@
+Personalized Stig for Windows Server 2012
+
+Change Password for Admin
+
+ - Control Panel
+ - Click on Admin, Change Passwrod
+
+Delete unnecessary accounts
+
+ (Only 1 Admin)
+ - System Properties 
+ - Advanced System Settings
+ - User Profiles
+ - Settings
+ - Select and Delete
+
+Make sure Firewall is running, change Inbound and Outbound Rules
+
+ - Win + R -> wf.msc
+ - Make sure inbound and outbound connections are blocked if doesn't meet a rule
+ - Go to outbound rules -> 
+   - UDP 88 -> Kerberos authentication
+   - UDP and TCP 135 -> Domain controllers-to-domain controller and client to domain controller operations
+   - TCP 139 and UDP 138 -> File Replication Service between domain controllers
+   - UDP 389 -> LDAP to handle queries from client computers to the domain controllers 
+   - TCP and UDP 445 -> File Replication Service
+   - TCP and UDP 464 -> Kerberos Password Change
+   - TCP 3268 and TCP 3269 -> Global Catalog from client to domain controller
+   - TCP and UDP 53 -> DNS 
+ - Go to inbound rules -> 
+   - UDP 88 -> Kerberos authentication
+   - UDP and TCP 135 -> Domain controllers-to-domain controller and client to domain controller operations
+   - TCP 139 and UDP 138 -> File Replication Service between domain controllers
+   - UDP 389 -> LDAP to handle queries from client computers to the domain controllers 
+   - TCP and UDP 445 -> File Replication Service
+   - TCP and UDP 464 -> Kerberos Password Change
+   - TCP 3268 and TCP 3269 -> Global Catalog from client to domain controller
+   - TCP and UDP 53 -> DNS 
+
+Check Startup Registries
+ - Search regedit
+   - HKEY_LOCAL_MACHINE/Software/Microsoft/Windows/CurrentVersion/Run
+   - HKEY_LOCAL_MACHINE/Software/Microsoft/Windows/CurrentVersion/RunOnce
+   - HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run
+   - HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunOnce
+
+Check Scheduled Tasks
+ 
+ - Win + R -> taskschd.msc
+
+Check users, groups, and privileges
+
+ - Win + R -> lusrmgr.msc
+
+Shared Drives
+
+ - Powershell -> net share
+
+After finding out what user is for checking emails
+Change user accounts passwords 
+
+
+HOW TO CHANGE ALL USER PASSWORDS 
+ - Go to Administrative Tools
+ - Go to Active Directory Users and Computers
+ - Go to filter, users only
+ - Go to view, add or remove columns
+ - Add specific fields
+ - Export list as import_users.csv
+ - Run poweradd.ps1
+ - check users.csv for new file
