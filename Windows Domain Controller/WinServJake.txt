@@ -17,6 +17,7 @@ Delete unnecessary accounts
 Download sysmon @ https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon 
  - Run sysmon -accepteula -i "wherever you save 'sysmon-configexport.xml'"
  - Install splunk forwarder
+   - Splunk forwarder is in /scripts/forwarderinstallerwindows.ps1
  
 Make sure Firewall is running, change Inbound and Outbound Rules
 
@@ -32,30 +33,25 @@ Make sure Firewall is running, change Inbound and Outbound Rules
    - TCP 3268 and TCP 3269 -> Global Catalog from client to domain controller
    - TCP and UDP 53 -> DNS 
    
-   Check Startup Registries
+ CHECK STARTUP REGISTRIES
  - Search regedit
    - HKEY_LOCAL_MACHINE/Software/Microsoft/Windows/CurrentVersion/Run
    - HKEY_LOCAL_MACHINE/Software/Microsoft/Windows/CurrentVersion/RunOnce
    - HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run
    - HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/RunOnce
 
-Check Scheduled Tasks
- 
+CHECK SCHEDULED TASKS
  - Win + R -> taskschd.msc
 
-Check users, groups, and privileges
-
+CHECK USERS, GROUPS, & PRIVILEGES
  - Win + R -> lusrmgr.msc
 
-Shared Drives
-
+SEE SHARES DRIVES
  - Powershell -> net share
 
 After finding out what user is for checking emails
 Change user accounts passwords 
-
-
-HOW TO CHANGE ALL USER PASSWORDS 
+-HOW TO CHANGE ALL USER PASSWORDS 
  - Go to Administrative Tools
  - Go to Active Directory Users and Computers
  - Go to filter, users only
@@ -65,10 +61,12 @@ HOW TO CHANGE ALL USER PASSWORDS
  - Run poweradd.ps1
  - check users.csv for new file
 
-How to disable Shares
+DISABLE SHARES
  - Go to computer management
  - System Tools -> Shared Folders -> Shares
  - Disable Users
+ 
+ OUTBOUND RULES
  - Go to outbound rules -> Mainly be blocking ones that should not exist
    - UDP 88 -> Kerberos authentication
    - UDP and TCP 135 -> Domain controllers-to-domain controller and client to domain controller operations
