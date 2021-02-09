@@ -15,7 +15,8 @@ Delete unnecessary accounts
  - Select and Delete
 
 Download sysmon @ https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon 
- - run sysmon -accepteula -i "wherever you save 'sysmon-configexport.xml'"
+ - Run sysmon -accepteula -i "wherever you save 'sysmon-configexport.xml'"
+ - Install splunk forwarder
  
 Make sure Firewall is running, change Inbound and Outbound Rules
 
@@ -72,3 +73,8 @@ HOW TO CHANGE ALL USER PASSWORDS
  - Export list as import_users.csv
  - Run poweradd.ps1
  - check users.csv for new file
+
+How to disable Shares
+ - Go to computer management
+ - System Tools -> Shared Folders -> Shares
+ - Disable Users
