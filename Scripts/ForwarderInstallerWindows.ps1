@@ -90,7 +90,7 @@ function Check-Splunk-Status {
 }
 
 if ($splService.Status -eq 'Running'){  # checks for running splunkd process
-{
+
     Write-Host '* Editing Configuration Files...' -ForegroundColor Magenta
     # writes lines to inputs.conf
     # had to add encoding switch to fix issues when installing on windows 8.1
