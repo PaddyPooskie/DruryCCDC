@@ -16,11 +16,17 @@ Delete unnecessary accounts
 
 Download sysmon @ https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon 
  - Run sysmon -accepteula -i "wherever you save 'sysmon-configexport.xml'"
+ - Install wget for windows
+  - https://eternallybored.org/misc/wget/
+  - Copy to System: copy "where wget.exe is" C:\Windows\System32
  - Install splunk forwarder
    - Splunk forwarder is in /scripts/forwarderinstallerwindows.ps1
  
+- Check DNS
+ - ncpa.cpl -> IPV4 Properties -> Preferred DNS to 127.0.0.1 -> Alternate DNS - Nothing
+ - DNS Manager -> Server Properties -> Forwarders -> We want 8.8.8.8 and 8.8.4.4
+ 
 Make sure Firewall is running, change Inbound and Outbound Rules
-
  - Win + R -> wf.msc
  - Make sure inbound and outbound connections are blocked if doesn't meet a rule
   - Go to inbound rules -> 
@@ -48,6 +54,7 @@ CHECK USERS, GROUPS, & PRIVILEGES
 
 SEE SHARES DRIVES
  - Powershell -> net share
+ - Leave sysVol 
 
 After finding out what user is for checking emails
 Change user accounts passwords 
@@ -76,3 +83,5 @@ DISABLE SHARES
    - TCP and UDP 464 -> Kerberos Password Change
    - TCP 3268 and TCP 3269 -> Global Catalog from client to domain controller
    - TCP and UDP 53 -> DNS 
+
+Disable RDP 
