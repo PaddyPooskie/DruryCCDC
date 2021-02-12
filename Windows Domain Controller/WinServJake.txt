@@ -27,6 +27,7 @@ Download sysmon @ https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
   - Copy to System: copy "where wget.exe is" C:\Windows\System32
  - Install splunk forwarder
    - Splunk forwarder is in /scripts/forwarderinstallerwindows.ps1
+ - Delete wget by deleting files where they're saved and also in system32 with "del C:\Windows\System32\wget.exe
  
 - Check DNS
  - ncpa.cpl -> IPV4 Properties -> Preferred DNS to 127.0.0.1 -> Alternate DNS - Nothing
