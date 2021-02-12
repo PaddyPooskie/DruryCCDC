@@ -13,6 +13,12 @@ Delete unnecessary accounts
  - User Profiles
  - Settings
  - Select and Delete
+ 
+Disable RDP 
+ - Control Panel -> System and Security -> Administrative Tools
+ - Group Policy Objects
+ - Expand Comp Config -> Admin Temp -> Win Comp -> Remote Desktop Services -> Remote Desktop Session Host -> Connections
+ - Disable Users
 
 Download sysmon @ https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon 
  - Run sysmon -accepteula -i "wherever you save 'sysmon-configexport.xml'"
@@ -83,5 +89,3 @@ DISABLE SHARES
    - TCP and UDP 464 -> Kerberos Password Change
    - TCP 3268 and TCP 3269 -> Global Catalog from client to domain controller
    - TCP and UDP 53 -> DNS 
-
-Disable RDP 
